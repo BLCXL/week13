@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML and JavaScript</title>
+    <style>
+        .courier-text {
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+    <script>
+        function doClear()
+        {
+            document.PizzaForm.customer.value = "";
+            document.PizzaForm.address.value = "";
+            document.PizzaForm.city.value = "";
+            document.PizzaForm.state.value = "";
+            document.PizzaForm.zip.value = "";
+            document.PizzaForm.phone.value = "";
+
+            document.PizzaForm.sizes[0].checked = false;
+            document.PizzaForm.sizes[1].checked = false;
+            document.PizzaForm.sizes[2].checked = false;
+            document.PizzaForm.sizes[3].checked = false;
+            document.PizzaForm.sizes[4].checked = false;
+            document.PizzaForm.sizes[5].checked = false;
+            return;
+        }
+
+
+
+
+
+        function doSubmit() {
+            if (validateText() == false)
+        {
+            alert("Required data missing in Step1")
+            return;
+        }
+            alert("Your pizza order has been submitted.");
+        }
+        
+        function validateText()
+        {
+            var customer = document.PizzaForm.customer.value;
+            if (customer.length == 0) return false;
+            var address = document.PizzaForm.address.value;
+            if (address.length == 0 ) return false;
+            var city = document.PizzaForm.city.valuse;
+            if (city.length == 0 ) return false;
+            var phone = document.PizzaForm.phone.value;
+            if (phone.length == 0 ) return false;
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="PizzaForm">
+        <h1>The JavaScript Pizza Parlor</h1>
+        
+        <h4>Step 1: Enter your name, address, and phone number:</h4>
+        <div class="courier-text">
+            Name: &nbsp;&nbsp;&nbsp;<input name="customer" size="50" type="text"><br>
+            Address: <input name="address" size="50" type="text"><br>
+            City: &nbsp;&nbsp;&nbsp;<input name="city" size="15" type="text">
+            State: <input name="state" size="2" type="text">
+            Zip: <input name="ZIP" size="5" type="text"><br>
+            Phone: &nbsp;&nbsp;<input name="phone" size="50" type="text"><br>
+        </div>
+
+        <h4>Step 2: Select the size of pizza you want:</h4>
+        <div class="courier-text">
+            <input name="Sizes" type="radio">Small
+            <input name="Sizes" type="radio">Medium
+            <input name="Sizes" type="radio">Large<br>
+        </div>
+
+        <h4>Step 3: Select the pizza toppings you want:</h4>
+        <div class="courier-text">
+            <input name="toppings" type="checkbox">Pepperoni
+            <input name="toppings" type="checkbox">Canadian Bacon
+            <input name="toppings" type="checkbox">Sausage<br>
+            <input name="toppings" type="checkbox">Mushrooms
+            <input name="toppings" type="checkbox">Pineapple
+            <input name="toppings" type="checkbox">Black Olives<br>
+        </div>
+
+        <input type="button" value="Submit order" onClick="doSubmit()">
+        <input type="reset" value="Clear Entries" onClick="doClear()">
+    </form>
+</body>
+</html>
